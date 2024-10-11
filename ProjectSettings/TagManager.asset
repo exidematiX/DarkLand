@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Friendly Creature
   layers:
   - Default
   - TransparentFX
@@ -11,9 +12,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - Friendly
+  - Obstacle
   - 
   - 
   - 
@@ -40,4 +41,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1797911929
+    locked: 0
+  - name: Creature
+    uniqueID: 696064309
+    locked: 0
+  - name: Enemy
+    uniqueID: 2910276519
+    locked: 0
+  - name: Friendly
+    uniqueID: 1224093657
+    locked: 0
+  - name: UI
+    uniqueID: 1890574419
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2031403639
     locked: 0
