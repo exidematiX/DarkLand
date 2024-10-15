@@ -23,7 +23,7 @@ public class CreatureMove : MonoBehaviour
         {
             if(_targetPos != value)
             {
-                Debug.Log($"Move To ({value.x}, {value.y})");
+                //Debug.Log($"Move To ({value.x}, {value.y})");
 
                 MoveToPosition(_targetPos);
                 _targetPos = value;

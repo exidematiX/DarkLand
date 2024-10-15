@@ -45,18 +45,24 @@ TagManager:
   - name: Background
     uniqueID: 1797911929
     locked: 0
-  - name: Creature
+  - name: 
     uniqueID: 696064309
     locked: 0
-  - name: Enemy
+  - name: Obstacle
     uniqueID: 2910276519
     locked: 0
-  - name: Friendly
+  - name: 
     uniqueID: 1224093657
     locked: 0
-  - name: UI
+  - name: Enemy
     uniqueID: 1890574419
     locked: 0
-  - name: Obstacle
+  - name: Friendly
     uniqueID: 2031403639
+    locked: 0
+  - name: Creature
+    uniqueID: 3383429031
+    locked: 0
+  - name: UI
+    uniqueID: 4068300887
     locked: 0
