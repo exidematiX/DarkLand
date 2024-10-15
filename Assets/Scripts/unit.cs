@@ -18,12 +18,19 @@ public class unit : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mousePos = Input.mousePosition;
-            Vector3 worldPos = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0));  // 2D游戏通常z为0
-            agent.SetDestination(worldPos);
+            Vector2 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 direction = Vector2.zero;
+            RaycastHit2D hit = Physics2D.Raycast(mousePosition, direction, ground);
+            if (hit.collider != null)
+            {
+                agent.SetDestination(hit.point);
+            }
+            else
+            {
+                Debug.Log("no ground");
+            }
         }
-       // agent.SetDestination(target.transform.position);
     }
 }
