@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     {
         RectChoose();
         IssueOrder();
-        CameraEdgeMov();
+        CameraEdgeMove();
         CameraReset();
     }
 
@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
         chosenObjs.Clear();
     }
 
-    public void CameraEdgeMov()
+    public void CameraEdgeMove()
     {
         Vector3 cameraMovement = Vector3.zero;
         Vector3 mousePos = Input.mousePosition;
@@ -211,23 +211,23 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x > screenWidth - edgeSize)
         {
             cameraMovement.x += 1; 
-            Debug.Log("右移");
+            //Debug.Log("右移");
         }
         else if (mousePos.x < edgeSize)
         {
             cameraMovement.x -= 1; 
-            Debug.Log("左移");
+            //Debug.Log("左移");
         }
 
         if (mousePos.y > screenHeight - edgeSize)
         {
             cameraMovement.y += 1; 
-            Debug.Log("上移");
+            //Debug.Log("上移");
         }
         else if (mousePos.y < edgeSize)
         {
             cameraMovement.y -= 1; 
-            Debug.Log("下移");
+            //Debug.Log("下移");
         }
 
         // 移动摄像机

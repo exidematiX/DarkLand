@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 8060128833325548654}
   - component: {fileID: 5659103049236602582}
   m_Layer: 7
-  m_Name: Zepper
+  m_Name: CharacterImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
