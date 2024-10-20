@@ -1,28 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreatureData : MonoBehaviour
 {
-    public Transform chosenMark; 
+    [SerializeField]
+    private float _health = 100f;
+    public float atkValue = 30f;
+    public float atkRange = 2f;
+
+    public float Health 
+    { 
+        get => _health;
+        set 
+        {
+            if (value != _health)
+            {
+                if (healthSlider.GetComponent<Slider>() != null)
+                {
+                    healthSlider.GetComponent<Slider>().value = value;
+                }
+            }
+            _health = value;
+        } 
+    }
+
+    public Transform chosenMark;
+    public Transform healthSlider;
+
     [SerializeField]
     private bool _isChosen = false;
 
-    private void Start()
+    public bool IsChosen
     {
-        chosenMark = transform.Find("Canvas/ChosenMark");
-    }
-
-    public bool IsChosen 
-    { 
         get => _isChosen;
-        set 
+        set
         {
-            if(value != _isChosen)
+            if (value != _isChosen)
             {
                 chosenMark?.gameObject.SetActive(value);
             }
             _isChosen = value;
-        } 
+        }
     }
+
+    private void Start()
+    {
+        chosenMark = transform.Find("Canvas/ChosenMark");
+        healthSlider = transform.Find("Canvas/HealthSlider");
+    }    
 }

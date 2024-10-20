@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -42,6 +43,9 @@ public class Selector
 
 public class PlayerController : MonoBehaviour
 {
+    private readonly string _friendlyCreatureTag = "Friendly Creature";
+    private readonly string _enemyCreatureTag = "Enemy Creature";
+
     public static PlayerController Instance;
 
     public bool onDrawingRect;//是否正在画框(即鼠标左键处于按住的状态)
@@ -67,6 +71,10 @@ public class PlayerController : MonoBehaviour
     public Vector2 maxBounds; // 摄像机的移动范围最大值
     public CameraStatus cameraStatus = CameraStatus.Free;
 
+    [Header("调试")]
+    public bool disableCameraEgdemovement = false;
+    public bool canChoseEnemy = true;
+
     private void Awake()
     {
         Instance = this;
@@ -75,7 +83,10 @@ public class PlayerController : MonoBehaviour
     {
         RectChoose();
         IssueOrder();
-        CameraEdgeMove();
+        if (!disableCameraEgdemovement)
+        {
+            CameraEdgeMove();
+        }    
         CameraReset();
     }
 
@@ -108,13 +119,27 @@ public class PlayerController : MonoBehaviour
             //Debug.LogFormat("画框结束，终点:{0}", endPoint);
 
             Selector selector = new Selector(startPoint, endPoint);
-            CheckWhetherInRect(selector, "Friendly Creature", ref chosenObjs);
+            if (canChoseEnemy == true)
+            {
+                CheckWhetherInRect(selector, ref chosenObjs, _friendlyCreatureTag, _enemyCreatureTag);
+            }
+            else
+            {
+                CheckWhetherInRect(selector, ref chosenObjs, _friendlyCreatureTag);
+            }
+            //CheckWhetherInRect(selector, "Enemy Creature", ref chosenObjs);
         }
     }
     
-    void CheckWhetherInRect(Selector _selector_, string _tag_, ref List<GameObject> chosenObjs)
+    void CheckWhetherInRect(Selector _selector_, ref List<GameObject> chosenObjs, params string[]  _tags_)
     {
-        List<GameObject> allObjWithTag = GameObject.FindGameObjectsWithTag(_tag_).ToList();
+        //List<GameObject> allObjWithTag = GameObject.FindGameObjectsWithTag(_tag_).ToList();
+        List<GameObject> allObjWithTag = new List<GameObject>();
+        foreach(string tag in _tags_)
+        {
+            Debug.Log(tag);
+            allObjWithTag.AddRange(GameObject.FindGameObjectsWithTag(tag));
+        }
 
         foreach (GameObject obj in allObjWithTag)
         {
@@ -177,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
                 Vector3 offsetPosition = formationStart + new Vector3(x * unitSpacing, y * unitSpacing, 0);
                 //chosenObjs[i].GetComponent<NavMeshAgent>().SetDestination(offsetPosition); // 移动单位
-                if(chosenObjs[i].GetComponent<CreatureMove>() != null)
+                if(chosenObjs[i].GetComponent<CreatureMove>() != null && chosenObjs[i].tag == _friendlyCreatureTag)
                 {
                     chosenObjs[i].GetComponent<CreatureMove>().targetPos = offsetPosition;
                     i++;

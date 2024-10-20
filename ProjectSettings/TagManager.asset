@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Friendly Creature
+  - Enemy Creature
+  - Friendly Building
+  - Base
   layers:
   - Default
   - TransparentFX
@@ -14,11 +17,11 @@ TagManager:
   - UI
   - Buildable
   - UnBuilldable
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Friendly
+  - Friendly Building
+  - Enemy
+  - Neutral Creatures
+  - Resource
   - 
   - 
   - 
@@ -48,12 +51,21 @@ TagManager:
   - name: Obstacle
     uniqueID: 2397650981
     locked: 0
-  - name: Friendly
+  - name: Building
     uniqueID: 216520187
     locked: 0
-  - name: Enemy
+  - name: CreatureUI
     uniqueID: 2570579223
     locked: 0
-  - name: UI
+  - name: Friendly
     uniqueID: 2708312989
+    locked: 0
+  - name: Enemy
+    uniqueID: 892283
+    locked: 0
+  - name: BuildingHide
+    uniqueID: 3835694339
+    locked: 0
+  - name: GameUI
+    uniqueID: 126200699
     locked: 0

@@ -4,18 +4,25 @@ using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
+public enum EnemyState
+{
+    Idle,
+    Patrolling,
+    Chasing,
+    MeleeAttacking,
+    RangedAttacking
+}
+
 public class CreatureMove : MonoBehaviour
 {
-    public float xVelocity = 0f;
-    public float yVelocity = 0f;
-    public float maxVelocity = 0f;
-
     public NavMeshAgent navMeshAgent;
+    public CreatureData creatureData;
+    public Animator animator;
 
-    private Vector3 _targetPos = Vector3.zero;
+    protected Vector3 _targetPos = Vector3.zero;
 
     private Vector2 lastMoveDirection;
-    private Animator animator;
+    
     public Vector3 targetPos
     {
         get
@@ -33,15 +40,16 @@ public class CreatureMove : MonoBehaviour
             }
         }
     }
-        
-    void Start()
+
+    protected virtual void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = transform.Find("CharacterImage").gameObject.GetComponent<Animator>();
+        creatureData = GetComponent<CreatureData>();
         _targetPos = transform.position;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (transform.position != _targetPos)
         {
