@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public static Action OnEnemyKilled;
+    public static Action<Enemy> OnEnemyKilled;
     public static Action<Enemy> OnEnemyHit;
 
 
@@ -39,7 +39,7 @@ public class EnemyHealth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             DealDamage(5f);
-        Debug.Log("扣血");
+            Debug.Log("扣血");
         }
         _healthBar.fillAmount = Mathf.Lerp(_healthBar.fillAmount,
             CurrentHealth/maxHealth,Time.deltaTime * 10f);
@@ -78,9 +78,6 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-       ResetHealth();
-
-        OnEnemyKilled?.Invoke();
-        ObjectPooler.ReturnToPool(gameObject);
+        OnEnemyKilled?.Invoke(_enemy);   
     }
 }

@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
-    public static Action OnEndReached;
+    public static Action<Enemy> OnEndReached;
 
-    [SerializeField] private float moveSped = 3f;
+    [SerializeField] private float moveSpeed = 3f;
     //[SerializeField] private Waypoint waypoint;
 
     public Waypoint waypoint{ get; set; }
+    public float MoveSpeed { get; set; }
 
+
+    public EnemyHealth EnemyHealth { get; set; }
 
     /// <summary>
     /// 返回敌人需要去的现在的位置
@@ -18,17 +21,29 @@ public class Enemy : MonoBehaviour
     public Vector3 CurrentPointPosition => waypoint.GetWaypointPosition(_currentWaypointIndex);
 
     private int _currentWaypointIndex;
+
+    private Vector3 _lastPointPosition;
     private EnemyHealth _enemyHealth;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _currentWaypointIndex = 0;//1
+
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        EnemyHealth = GetComponent<EnemyHealth>();
+
+        MoveSpeed = moveSpeed;
+
+        _lastPointPosition = transform.position;
         _enemyHealth = GetComponent<EnemyHealth>();
     }
 
 
     private void Update()
     {
+
+        Rotate();
         Move();
         if (CurrentPointPositionReached())
         {
@@ -42,7 +57,31 @@ public class Enemy : MonoBehaviour
     {
        
         transform.position = Vector3.MoveTowards(transform.position,
-        CurrentPointPosition,moveSped * Time.deltaTime);
+        CurrentPointPosition,MoveSpeed * Time.deltaTime);
+    }
+
+
+    public void StopMovement()
+    {
+        MoveSpeed = 0f;
+    }
+
+    public void ResetMovement()
+    {
+        MoveSpeed = moveSpeed;
+    }
+
+
+    private void Rotate()
+    {
+        if (CurrentPointPosition.x > _lastPointPosition.x)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else
+        {
+            _spriteRenderer.flipX = false;
+        }
     }
 
     private bool CurrentPointPositionReached()
@@ -50,6 +89,7 @@ public class Enemy : MonoBehaviour
         float distanceToNextPointPosition = (transform.position - CurrentPointPosition).magnitude;
         if(distanceToNextPointPosition < 0.1f)
         {
+            _lastPointPosition = transform.position;
             return true;
         }
         return false;
@@ -72,7 +112,7 @@ public class Enemy : MonoBehaviour
     private void EndPointReached()
     {
         
-        OnEndReached?.Invoke();
+        OnEndReached?.Invoke(this);
         _enemyHealth.ResetHealth();
         ObjectPooler.ReturnToPool(gameObject);
     }
