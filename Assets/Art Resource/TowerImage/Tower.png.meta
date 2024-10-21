@@ -105,7 +105,7 @@ TextureImporter:
         width: 191
         height: 150
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,11 +122,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 116
-        y: 551
+        y: 550
         width: 191
         height: 463
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,15 +139,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_2
+      name: RockResource
       rect:
         serializedVersion: 2
-        x: 640
-        y: 0
-        width: 320
-        height: 1080
+        x: 275
+        y: 129
+        width: 342
+        height: 159
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,15 +160,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_3
+      name: RockResourceHide
       rect:
         serializedVersion: 2
-        x: 960
-        y: 0
-        width: 320
-        height: 1080
+        x: 275
+        y: 287
+        width: 342
+        height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,15 +181,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_4
+      name: TreeResource
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 320
-        height: 1080
+        x: 1338
+        y: 38
+        width: 252
+        height: 173
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,15 +202,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_5
+      name: TreeResourceHide
       rect:
         serializedVersion: 2
-        x: 1600
-        y: 0
-        width: 320
-        height: 1080
+        x: 1294
+        y: 210
+        width: 386
+        height: 249
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,10 +235,11 @@ TextureImporter:
     nameFileIdTable:
       Base: -1193987125
       BaseHide: -1886200901
-      Tower_2: -136474258
-      Tower_3: 738018256
-      Tower_4: -1612181547
-      Tower_5: 1166101992
+      RockResource: -136474258
+      RockResourceHide: 738018256
+      Tower_0: -1664608711
+      TreeResource: -1612181547
+      TreeResourceHide: 1166101992
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
