@@ -18,6 +18,7 @@ public class CreatureMove : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public CreatureData creatureData;
     public Animator animator;
+    public FieldOfView fieldOfView;
 
     protected Vector3 _targetPos = Vector3.zero;
 
@@ -55,6 +56,8 @@ public class CreatureMove : MonoBehaviour
         {
             MoveToPosition(_targetPos);
         }
+
+        fieldOfView.SetOrigin(transform.position);
     }
 
     public void MoveToPosition(Vector3 _targetPos_)

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2324607769602377749}
   m_Layer: 12
   m_Name: RockResource
-  m_TagString: Base
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

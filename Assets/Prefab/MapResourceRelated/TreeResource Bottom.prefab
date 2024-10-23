@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5640030961265882492}
   m_Layer: 12
   m_Name: TreeResource Bottom
-  m_TagString: Base
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
