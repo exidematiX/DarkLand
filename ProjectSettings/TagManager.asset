@@ -73,3 +73,6 @@ TagManager:
   - name: GameUI
     uniqueID: 1855214191
     locked: 0
+  - name: mask
+    uniqueID: 4135496441
+    locked: 0
