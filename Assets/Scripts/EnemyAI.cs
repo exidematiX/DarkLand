@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,14 +23,23 @@ public class EnemyAI : CreatureMove
 
     [SerializeField]
     private EnemyState _currentState = EnemyState.Patrolling;
-    public EnemyState CurrentState 
-    { 
+
+
+
+
+    [SerializeField] private float moveSpeed = 3f;
+
+    [Header("Turret")]
+    public static Action<Turret, float> OnTurretHit;
+    public EnemyHealth EnemyHealth { get; set; }
+    public EnemyState CurrentState
+    {
         get => _currentState;
-        set 
+        set
         {
-            if(value != _currentState)
+            if (value != _currentState)
             {
-                if(value == EnemyState.Chasing)
+                if (value == EnemyState.Chasing)
                 {
                     Debug.Log("切换到 Chasing");
                     animator?.SetBool("isWalking", true);
@@ -41,7 +51,7 @@ public class EnemyAI : CreatureMove
                     animator?.SetBool("isWalking", true);
                     animator?.SetBool("isMeleeAttacking", false);
                 }
-                else if(value == EnemyState.MeleeAttacking)
+                else if (value == EnemyState.MeleeAttacking)
                 {
                     Debug.Log("切换到 MeleeAttacking");
                     animator?.SetBool("isWalking", false);
@@ -55,7 +65,7 @@ public class EnemyAI : CreatureMove
                 }
             }
             _currentState = value;
-        } 
+        }
     }
 
     protected override void Start()
@@ -70,6 +80,11 @@ public class EnemyAI : CreatureMove
 
         animator?.SetBool("isMeleeAttacking", false);
         animator?.SetBool("isWalking", false);
+
+        EnemyHealth = GetComponent<EnemyHealth>();
+
+
+        TurretHealth.OnTurretKilled += OnTurretKilled;
     }
 
     protected override void Update()
@@ -97,50 +112,66 @@ public class EnemyAI : CreatureMove
     {
         MoveToPosition(townCenterTransform.position);
         targetDistance = Vector2.Distance(transform.position, townCenterTransform.position);
-        
-        //if (targetDistance < creatureData.atkRange)
-        //{
-        //    CurrentState = EnemyState.MeleeAttacking;
-        //}
 
+        // If there is no target, search for one
         SearchTarget();
     }
+
 
     // 实现追击行为，靠近target
     public void Chase()
     {
-        animator.SetBool("isWalking", true);
-        MoveToPosition(targetTransform.position);
-        targetDistance = Vector2.Distance(transform.position, targetTransform.position);
-
-        if (targetDistance > hatredRadius)
+        if (targetTransform != null)
         {
+            animator.SetBool("isWalking", true);
+            MoveToPosition(targetTransform.position);
+            targetDistance = Vector2.Distance(transform.position, targetTransform.position);
+
+            if (targetDistance > hatredRadius)
+            {
+                CurrentState = EnemyState.Patrolling;
+            }
+            else if (targetDistance < creatureData.atkRange)
+            {
+                CurrentState = EnemyState.MeleeAttacking;
+                animator.SetBool("isWalking", false);
+            }
+        }
+        else
+        {
+            // If target is null, switch back to Patrolling state
             CurrentState = EnemyState.Patrolling;
         }
-        else if (targetDistance < creatureData.atkRange)
-        {
-            CurrentState = EnemyState.MeleeAttacking;
-            animator.SetBool("isWalking", false);
-        }
     }
+
 
     // 实现近战攻击行为
     public void MeleeAttack()
     {
-        float targetDistance = Vector2.Distance(transform.position, targetTransform.position);
-
-        Vector2 targetDir = targetTransform.position - transform.position;
-        animator.SetFloat("targetX", targetDir.x);
-        animator.SetFloat("targetY", targetDir.y);
-
-        animator.SetBool("isMeleeAttacking", true);
-
-        if(targetDistance > creatureData.atkRange)
+        // Check if targetTransform is not null
+        if (targetTransform != null)
         {
-            CurrentState = EnemyState.Chasing;
-            animator.SetBool("isMeleeAttacking", false);
+            float targetDistance = Vector2.Distance(transform.position, targetTransform.position);
+
+            Vector2 targetDir = targetTransform.position - transform.position;
+            animator.SetFloat("targetX", targetDir.x);
+            animator.SetFloat("targetY", targetDir.y);
+
+            animator.SetBool("isMeleeAttacking", true);
+
+            if (targetDistance > creatureData.atkRange)
+            {
+                CurrentState = EnemyState.Chasing;
+                animator.SetBool("isMeleeAttacking", false);
+            }
+        }
+        else
+        {
+            // If target is null, switch back to Patrolling state
+            CurrentState = EnemyState.Patrolling;
         }
     }
+
 
     void RangedAttack()
     {
@@ -190,6 +221,50 @@ public class EnemyAI : CreatureMove
         //Gizmos.color = hatredColor;
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, hatredRadius);
+    }
+
+
+    public void StopMovement()
+    {
+        // Before stopping movement, make sure the NavMeshAgent is not null.
+        if (navMeshAgent != null)
+        {
+            // Set the NavMeshAgent's speed to 0, effectively stopping the movement.
+            navMeshAgent.speed = 0f;
+        }
+    }
+
+    public void ResetMovement()
+    {
+        // Before resetting movement, make sure the NavMeshAgent is not null.
+        if (navMeshAgent != null)
+        {
+            // Reset the NavMeshAgent's speed to its original value.
+            navMeshAgent.speed = moveSpeed; // Assuming 'moveSpeed' is the original speed value
+        }
+    }
+
+
+
+    private void OnDestroy()
+    {
+        // 取消监听，避免内存泄漏
+        TurretHealth.OnTurretKilled -= OnTurretKilled;
+    }
+
+    // 处理炮塔死亡事件，切换状态为巡逻
+    private void OnTurretKilled(Turret turret)
+    {
+        Debug.Log("炮塔已被摧毁，敌人切换到巡逻状态");
+
+        // Set targetTransform to null if the destroyed turret was the current target
+        if (targetTransform != null && targetTransform.GetComponent<Turret>() == turret)
+        {
+            targetTransform = null;
+        }
+
+        // Switch to Patrolling state
+        CurrentState = EnemyState.Patrolling;
     }
 
 
