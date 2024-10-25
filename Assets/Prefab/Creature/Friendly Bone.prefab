@@ -52,6 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 6916723095971529253}
   creatureData: {fileID: 0}
+  animator: {fileID: 0}
+  fieldOfView: {fileID: 0}
 --- !u!195 &6916723095971529253
 NavMeshAgent:
   m_ObjectHideFlags: 0

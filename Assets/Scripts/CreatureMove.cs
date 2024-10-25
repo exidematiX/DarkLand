@@ -18,7 +18,7 @@ public class CreatureMove : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public CreatureData creatureData;
     public Animator animator;
-    public FieldOfView fieldOfView;
+    public FieldOfView FieldOfView { get ; set ; }
 
     protected Vector3 _targetPos = Vector3.zero;
 
@@ -42,12 +42,16 @@ public class CreatureMove : MonoBehaviour
         }
     }
 
+    
+
     protected virtual void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = transform.Find("CharacterImage").gameObject.GetComponent<Animator>();
         creatureData = GetComponent<CreatureData>();
         _targetPos = transform.position;
+
+        FieldOfView = FindObjectOfType<FieldOfView>();
     }
 
     protected virtual void Update()
@@ -57,7 +61,8 @@ public class CreatureMove : MonoBehaviour
             MoveToPosition(_targetPos);
         }
 
-        fieldOfView.SetOrigin(transform.position);
+        //fieldOfView.SetOrigin(transform.position);
+        FieldOfView.SetOrigin(new KeyValuePair<GameObject, Vector3>(gameObject, transform.position));
     }
 
     public void MoveToPosition(Vector3 _targetPos_)

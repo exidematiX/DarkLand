@@ -103,18 +103,22 @@ public class PlayerController : MonoBehaviour
             onDrawingRect = true;
             startPoint = Input.mousePosition;
             //Debug.LogFormat("开始画框，起点:{0}", startPoint);
+
         }
 
         //在鼠标左键未放开时，实时记录鼠标指针的位置
         if (onDrawingRect)
         {
             currentPoint = Input.mousePosition;
+
         }
 
         //玩家放开鼠标左键，说明框画完，确定框的终止点，退出画框状态
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             endPoint = Input.mousePosition;
+
+
             onDrawingRect = false;
             //Debug.LogFormat("画框结束，终点:{0}", endPoint);
 
@@ -137,7 +141,7 @@ public class PlayerController : MonoBehaviour
         List<GameObject> allObjWithTag = new List<GameObject>();
         foreach(string tag in _tags_)
         {
-            Debug.Log(tag);
+            //Debug.Log(tag);
             allObjWithTag.AddRange(GameObject.FindGameObjectsWithTag(tag));
         }
 

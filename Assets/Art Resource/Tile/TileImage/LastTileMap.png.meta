@@ -1,0 +1,693 @@
+fileFormatVersion: 2
+guid: 5dba0531f7b2e794eaf68fd45b18b4a8
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: My1GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 372
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4f53d7d9b1eda45987309cade896ec
+      internalID: 298567554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My2GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 372
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bca3a053a5e6b4d8528087207bc559
+      internalID: 2131863680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My3GrassGround
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 372
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1adbbea7cba24654882c8969e689df1f
+      internalID: -1406721473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow1Water
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 366
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3b22e6616f2964439ce1a443fcff8b0
+      internalID: 971314172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow2Water
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 367
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fbb89c641b72646ac378a960dfec33
+      internalID: 387829006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow3Water
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 366
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01d3d4a3f38de764f980782c30f77a14
+      internalID: -1751671025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My4GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 198
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15426351da85cf74897163c217bfbb24
+      internalID: -250178375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My5GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 198
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2638704f488c534f92619c814dc417e
+      internalID: 1034738025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My6GrassGround
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 198
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9ad7d028d82fa448b68a69d19d1e50
+      internalID: -113073946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow4Water
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 194
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb484cd7876dfc1468d63dcd6f05b3c7
+      internalID: 1918023503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow5Water
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 194
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c58d39ecb23a74681467179e7e2c3b
+      internalID: 692884906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow6Water
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 194
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e97d731e946ba8a4588695f44a2e5b17
+      internalID: -357983254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My7GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1752
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3126783e6b3eec47a196fe26b9c7e2f
+      internalID: 1316558991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My8GrassGround
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c72414d21e1674db221c708b595c24
+      internalID: -1684757615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: My9GrassGround
+      rect:
+        serializedVersion: 2
+        x: 2101
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c89f6e40e55074ca78f90ba7d1dcb4
+      internalID: 2085897176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow7Water
+      rect:
+        serializedVersion: 2
+        x: 2448
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f203437178986064fb3a5f55fc54a429
+      internalID: -1291596320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow8Water
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7779abde0e08f094d8b729a55b0ef66e
+      internalID: 1048666703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shallow9Water
+      rect:
+        serializedVersion: 2
+        x: 2798
+        y: 23
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1225363864a67d42afaefa3c3fecc08
+      internalID: 698731308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      LastTileMap_0: 1553231051
+      LastTileMap_1: -357650703
+      LastTileMap_10: 105924213
+      LastTileMap_100: -1382552179
+      LastTileMap_101: 1531894868
+      LastTileMap_102: -112717996
+      LastTileMap_103: 504164958
+      LastTileMap_104: 1168024985
+      LastTileMap_105: 269786401
+      LastTileMap_106: 189701947
+      LastTileMap_107: -433034907
+      LastTileMap_108: 493998396
+      LastTileMap_109: 1756487521
+      LastTileMap_11: -1494315155
+      LastTileMap_110: -818400062
+      LastTileMap_111: -1405929853
+      LastTileMap_112: -2011192447
+      LastTileMap_113: 449313966
+      LastTileMap_114: 1239202070
+      LastTileMap_115: -1207821495
+      LastTileMap_116: -998629336
+      LastTileMap_117: 1419317056
+      LastTileMap_118: -1618658063
+      LastTileMap_119: 1207019208
+      LastTileMap_12: 1977056605
+      LastTileMap_120: 865380364
+      LastTileMap_121: -330167608
+      LastTileMap_122: 1999712763
+      LastTileMap_123: 924436231
+      LastTileMap_124: 2037545825
+      LastTileMap_125: -1463346142
+      LastTileMap_126: 1177296375
+      LastTileMap_127: 1521218543
+      LastTileMap_128: -1543728293
+      LastTileMap_129: 1344684555
+      LastTileMap_13: -2138373546
+      LastTileMap_130: 1770886266
+      LastTileMap_131: -1500544573
+      LastTileMap_132: 789072109
+      LastTileMap_133: 1443462311
+      LastTileMap_134: -112053946
+      LastTileMap_135: 630444891
+      LastTileMap_136: -1336377399
+      LastTileMap_137: 1794622169
+      LastTileMap_138: 995253139
+      LastTileMap_139: -1429356582
+      LastTileMap_14: 1164085979
+      LastTileMap_140: -2091513549
+      LastTileMap_141: -740297006
+      LastTileMap_142: 1307215152
+      LastTileMap_143: 2001624016
+      LastTileMap_144: -1619759794
+      LastTileMap_145: 1049327316
+      LastTileMap_146: 1987340490
+      LastTileMap_147: 696714707
+      LastTileMap_148: -1481442486
+      LastTileMap_149: -2126501425
+      LastTileMap_15: 1561339230
+      LastTileMap_150: 1878482612
+      LastTileMap_151: 1719019535
+      LastTileMap_152: -1881853401
+      LastTileMap_153: 764644024
+      LastTileMap_154: 940020183
+      LastTileMap_155: 1942365174
+      LastTileMap_156: 1353623517
+      LastTileMap_157: 366593385
+      LastTileMap_158: -2061016733
+      LastTileMap_16: -1648187539
+      LastTileMap_162: 1755421672
+      LastTileMap_166: 1968637664
+      LastTileMap_167: -493918320
+      LastTileMap_168: 1123230543
+      LastTileMap_169: 1791656261
+      LastTileMap_17: 967825538
+      LastTileMap_170: -1020152711
+      LastTileMap_171: 1796160703
+      LastTileMap_172: -14189668
+      LastTileMap_173: -1381605693
+      LastTileMap_174: 819774204
+      LastTileMap_175: 669542764
+      LastTileMap_179: -1407533937
+      LastTileMap_18: 711196536
+      LastTileMap_183: 2137208422
+      LastTileMap_184: -269959243
+      LastTileMap_185: 929911679
+      LastTileMap_186: 1256532524
+      LastTileMap_187: -1776513630
+      LastTileMap_188: 333002171
+      LastTileMap_189: -1058015161
+      LastTileMap_19: -1532620879
+      LastTileMap_190: -1641739624
+      LastTileMap_191: 1610307714
+      LastTileMap_192: -1883766865
+      LastTileMap_196: -53625194
+      LastTileMap_2: -1481605928
+      LastTileMap_20: 1852776968
+      LastTileMap_200: 1290377879
+      LastTileMap_21: 350915306
+      LastTileMap_22: -556797511
+      LastTileMap_23: 852283525
+      LastTileMap_24: 745294208
+      LastTileMap_25: 618297255
+      LastTileMap_26: 1008756450
+      LastTileMap_27: 1235063470
+      LastTileMap_28: -1213376034
+      LastTileMap_29: -1428585166
+      LastTileMap_3: -123952191
+      LastTileMap_30: 1428798228
+      LastTileMap_31: -646523371
+      LastTileMap_32: -1170386780
+      LastTileMap_33: -1810898930
+      LastTileMap_34: -1961062072
+      LastTileMap_35: -614320878
+      LastTileMap_36: 2018309809
+      LastTileMap_37: 2069865881
+      LastTileMap_38: -1332488406
+      LastTileMap_39: 1203955473
+      LastTileMap_4: 962705508
+      LastTileMap_40: -828768685
+      LastTileMap_41: -1132338885
+      LastTileMap_42: 1562964298
+      LastTileMap_43: -742253410
+      LastTileMap_44: -170597338
+      LastTileMap_45: 1639896514
+      LastTileMap_46: -1699849800
+      LastTileMap_47: 223183578
+      LastTileMap_48: -1767687826
+      LastTileMap_49: -1095322497
+      LastTileMap_5: 1838550039
+      LastTileMap_50: 1241662403
+      LastTileMap_51: -2002893406
+      LastTileMap_52: 268701344
+      LastTileMap_53: 1393938446
+      LastTileMap_54: -590488165
+      LastTileMap_55: 1763231566
+      LastTileMap_56: -252634764
+      LastTileMap_57: 1703148912
+      LastTileMap_58: -204084354
+      LastTileMap_59: -457187309
+      LastTileMap_6: 1645953024
+      LastTileMap_60: -950468215
+      LastTileMap_61: 2111470974
+      LastTileMap_62: -284001187
+      LastTileMap_63: -231753786
+      LastTileMap_64: 2145268578
+      LastTileMap_65: 888072770
+      LastTileMap_66: -845580090
+      LastTileMap_67: -950880068
+      LastTileMap_68: -391852069
+      LastTileMap_69: 1201264100
+      LastTileMap_7: -549040531
+      LastTileMap_70: 825064597
+      LastTileMap_71: 1189522162
+      LastTileMap_72: 1905855972
+      LastTileMap_73: 1446601889
+      LastTileMap_74: 2030828968
+      LastTileMap_75: 700937256
+      LastTileMap_76: -1143506698
+      LastTileMap_77: 1293599643
+      LastTileMap_78: -1501945381
+      LastTileMap_79: -1696800376
+      LastTileMap_8: -1512729413
+      LastTileMap_80: -1373365850
+      LastTileMap_81: -820485602
+      LastTileMap_82: 678883471
+      LastTileMap_83: 1610162898
+      LastTileMap_84: -1433856664
+      LastTileMap_85: -1234934432
+      LastTileMap_86: -11302408
+      LastTileMap_87: 1633188293
+      LastTileMap_88: 1362099098
+      LastTileMap_89: -1563554992
+      LastTileMap_9: 2019081267
+      LastTileMap_90: 980000343
+      LastTileMap_91: -1280269420
+      LastTileMap_92: -399124164
+      LastTileMap_93: -184181079
+      LastTileMap_94: 713069011
+      LastTileMap_95: -790791839
+      LastTileMap_96: -471779497
+      LastTileMap_97: -269530827
+      LastTileMap_98: 1495546477
+      LastTileMap_99: -108916659
+      My1GrassGround: 298567554
+      My2GrassGround: 2131863680
+      My3GrassGround: -1406721473
+      My4GrassGround: -250178375
+      My5GrassGround: 1034738025
+      My6GrassGround: -113073946
+      My7GrassGround: 1316558991
+      My8GrassGround: -1684757615
+      My9GrassGround: 2085897176
+      Shallow1Water: 971314172
+      Shallow2Water: 387829006
+      Shallow3Water: -1751671025
+      Shallow4Water: 1918023503
+      Shallow5Water: 692884906
+      Shallow6Water: -357983254
+      Shallow7Water: -1291596320
+      Shallow8Water: 1048666703
+      Shallow9Water: 698731308
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

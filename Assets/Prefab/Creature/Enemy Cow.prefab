@@ -161,6 +161,9 @@ MonoBehaviour:
   viewRadiusColor: {r: 0, g: 0, b: 1, a: 1}
   atkColor: {r: 1, g: 0, b: 0, a: 1}
   hatredColor: {r: 1, g: 0, b: 0, a: 1}
+  spriteRenderer: {fileID: 0}
+  enemyUICanvas: {fileID: 0}
+  _isVisible: 0
   _currentState: 1
 --- !u!1 &1988991367017485987
 GameObject:
@@ -171,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1176527862598358231}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894882555075826197}
   - component: {fileID: 2102763723944037346}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +301,7 @@ GameObject:
   - component: {fileID: 306022734080426859}
   - component: {fileID: 4122860670146795278}
   - component: {fileID: 8932202211588443928}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: ChosenMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +376,7 @@ GameObject:
   - component: {fileID: 6890721011809129871}
   - component: {fileID: 5473228094060417078}
   - component: {fileID: 6360103643727810171}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -395,7 +398,7 @@ RectTransform:
   m_Father: {fileID: 1176527862598358231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.37998962, y: 0}
   m_SizeDelta: {x: 2.77, y: -4.02}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -569,13 +572,13 @@ GameObject:
   - component: {fileID: 5315450983217348591}
   - component: {fileID: 1388154751116048000}
   - component: {fileID: 6526083639118382596}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Enemy Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4827110726603278372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -659,7 +662,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!1 &9183934964241943665
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +674,7 @@ GameObject:
   - component: {fileID: 1624219225726023663}
   - component: {fileID: 2481582229116949528}
   - component: {fileID: 7649864707587029198}
-  m_Layer: 10
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

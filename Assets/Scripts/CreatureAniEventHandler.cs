@@ -8,7 +8,7 @@ public class CreatureAniEventHandler : MonoBehaviour
     public void MeleeAttackFinished()
     {
         //enemyAI.CurrentState = EnemyState.Idle;
-        Debug.Log("造成伤害");
+        //Debug.Log("造成伤害");
         
         if(enemyAI.targetDistance < enemyAI.creatureData.atkRange)
         {

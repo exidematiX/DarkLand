@@ -20,7 +20,28 @@ public class EnemyAI : CreatureMove
     public Color atkColor = Color.red;
     public Color hatredColor = Color.green;
 
-    [SerializeField]
+    [Header("玩家视野有关")]
+    public SpriteRenderer spriteRenderer;
+    public GameObject enemyUICanvas;
+
+    [SerializeField] private bool _isVisible = false;
+    public bool IsVisible
+    {
+        get
+        {
+            return _isVisible;
+        }
+        set
+        {
+            if (value != _isVisible)
+            {
+                enemyUICanvas.SetActive(value);
+            }
+            _isVisible = value;
+        }
+    }
+
+        [SerializeField]
     private EnemyState _currentState = EnemyState.Patrolling;
     public EnemyState CurrentState 
     { 
@@ -31,25 +52,25 @@ public class EnemyAI : CreatureMove
             {
                 if(value == EnemyState.Chasing)
                 {
-                    Debug.Log("切换到 Chasing");
+                    //Debug.Log("切换到 Chasing");
                     animator?.SetBool("isWalking", true);
                     animator?.SetBool("isMeleeAttacking", false);
                 }
                 else if (value == EnemyState.Patrolling)
                 {
-                    Debug.Log("切换到 Patrolling");
+                    //Debug.Log("切换到 Patrolling");
                     animator?.SetBool("isWalking", true);
                     animator?.SetBool("isMeleeAttacking", false);
                 }
                 else if(value == EnemyState.MeleeAttacking)
                 {
-                    Debug.Log("切换到 MeleeAttacking");
+                    //Debug.Log("切换到 MeleeAttacking");
                     animator?.SetBool("isWalking", false);
                     animator?.SetBool("isMeleeAttacking", true);
                 }
                 else if (value == EnemyState.Idle)
                 {
-                    Debug.Log("切换到 Idle");
+                    //Debug.Log("切换到 Idle");
                     animator?.SetBool("isWalking", false);
                     animator?.SetBool("isMeleeAttacking", false);
                 }
@@ -57,6 +78,8 @@ public class EnemyAI : CreatureMove
             _currentState = value;
         } 
     }
+
+   
 
     protected override void Start()
     {
@@ -67,6 +90,9 @@ public class EnemyAI : CreatureMove
         townCenterTransform = GameObject.FindGameObjectsWithTag("Base")[0].transform;
         targetTransform = GameObject.FindGameObjectsWithTag("Base")[0].transform; ;
         friendlyUnitCombieLayerMask = LayerMask.GetMask("Friendly", "Friendly Building");
+
+        spriteRenderer = transform.Find("CharacterImage").gameObject.GetComponent<SpriteRenderer>();
+        enemyUICanvas = transform.Find("Canvas").gameObject;
 
         animator?.SetBool("isMeleeAttacking", false);
         animator?.SetBool("isWalking", false);
@@ -90,6 +116,15 @@ public class EnemyAI : CreatureMove
                 break;
         }
 
+        
+        if (spriteRenderer.isVisible)
+        {
+            IsVisible = true;
+        }
+        else
+        {
+            IsVisible = false;
+        }
     }
 
     // 实现巡逻行为
