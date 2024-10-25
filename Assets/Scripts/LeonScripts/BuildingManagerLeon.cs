@@ -20,7 +20,7 @@ public class BuildingManagerLeon : MonoBehaviour
         if (selectedBuildIndex < 0 || selectedBuildIndex >= buildingPrefabs.Length)
             return;
 
-        currentPreview = Instantiate(buildingPrefabs[selectedBuildIndex]);
+        currentPreview = Instantiate(buildingPrefabs[selectedBuildIndex]);//实例化预览建造
         currentPreview.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.5f);
     }
     private void Update()
@@ -32,7 +32,7 @@ public class BuildingManagerLeon : MonoBehaviour
             currentPreview.transform.position = worldPosition;
 
             bool isPlacement = IsPlacement(worldPosition);
-            currentPreview.GetComponent<Renderer>().material.color = isPlacement ? Color.green : Color.red;
+            currentPreview.GetComponent<Renderer>().material.color = isPlacement ? Color.green : Color.red;//可建造是绿色，不可是红色
 
             if (Input.GetMouseButtonDown(0) && isPlacement)
             {
