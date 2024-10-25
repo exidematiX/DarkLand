@@ -75,9 +75,12 @@ public class PlayerController : MonoBehaviour
     public bool disableCameraEgdemovement = false;
     public bool canChoseEnemy = true;
 
+    [Header("框选物体")]
+    public GameObject renderChose;
     private void Awake()
     {
         Instance = this;
+        renderChose = GameObject.FindGameObjectsWithTag("RectChoose")[0];
     }
     void Update()
     {
@@ -93,6 +96,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main.gameObject;
+        
     }
 
     public void RectChoose()
@@ -102,6 +106,7 @@ public class PlayerController : MonoBehaviour
         {
             onDrawingRect = true;
             startPoint = Input.mousePosition;
+            renderChose.SetActive(true);
             //Debug.LogFormat("开始画框，起点:{0}", startPoint);
 
         }
@@ -131,6 +136,7 @@ public class PlayerController : MonoBehaviour
             {
                 CheckWhetherInRect(selector, ref chosenObjs, _friendlyCreatureTag);
             }
+            renderChose.SetActive(false);
             //CheckWhetherInRect(selector, "Enemy Creature", ref chosenObjs);
         }
     }

@@ -9,6 +9,7 @@ TagManager:
   - Friendly Building
   - Base
   - Resource
+  - RectChoose
   layers:
   - Default
   - TransparentFX

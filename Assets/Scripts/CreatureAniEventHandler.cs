@@ -30,8 +30,5 @@ public class CreatureAniEventHandler : MonoBehaviour
         //enemyAI.animator?.SetBool("isWalking", false);
     }
 
-    void Update()
-    {
-        
-    }
+    
 }

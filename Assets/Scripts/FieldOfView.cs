@@ -209,13 +209,13 @@ public class FieldOfView : MonoBehaviour
             if (!originsDic[objOriginPair.Key].Equals(objOriginPair.Value))
             {
                 this.originsDic[objOriginPair.Key] = objOriginPair.Value;
-                Debug.Log($"成功修改:{objOriginPair.Key.name}, {objOriginPair.Value}");
+                //Debug.Log($"成功修改:{objOriginPair.Key.name}, {objOriginPair.Value}");
             }
         }
         else
         {
             originsDic.Add(objOriginPair.Key, objOriginPair.Value);
-            Debug.Log($"成功添加:{objOriginPair.Key.name}, {objOriginPair.Value}");
+            //Debug.Log($"成功添加:{objOriginPair.Key.name}, {objOriginPair.Value}");
         }
 
     }
