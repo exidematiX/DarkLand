@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : CreatureMove
+public class 
+    EnemyAI : CreatureMove
 {
     [Header("目标相关")]
     public Transform targetTransform;

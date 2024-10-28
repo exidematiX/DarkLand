@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
         //玩家按下鼠标左键，此时进入画框状态，并确定框的起始点
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            ClearChosenList();
             onDrawingRect = true;
             startPoint = Input.mousePosition;
             renderChose.SetActive(true);
@@ -204,6 +205,7 @@ public class PlayerController : MonoBehaviour
     
     void IssueOrder()
     {
+        // 鼠标右键
         if (Input.GetMouseButtonDown(1) )
         {
             List<GameObject> chosenFriendlyCreature = new List<GameObject>();
@@ -227,7 +229,7 @@ public class PlayerController : MonoBehaviour
 
             if (cameraStatus == CameraStatus.Free)
             {
-                ClearChosenList();
+                //ClearChosenList();
             }
         }
     }
