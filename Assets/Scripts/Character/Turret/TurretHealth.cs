@@ -45,6 +45,7 @@ public class TurretHealth : Health
     {
         OnTurretKilled?.Invoke(_turret);
         // 使炮塔消失或执行消失动画
+        FieldOfView.Instance.originsDic.Remove(gameObject);
         Destroy(gameObject);
     }
 }

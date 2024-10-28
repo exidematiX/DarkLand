@@ -298,6 +298,7 @@ public class PlayerController : MonoBehaviour
                     GameObject uiChooseObj = Instantiate(obj.GetComponent<UnitData>().chooseUIPrefab, chooseObjGrid.transform);
                     gameObjUIChooseObjDic.Add(obj, uiChooseObj);
                     chooseUIList.Add(uiChooseObj);
+                    Debug.Log("sdfdgdf");
                 }
             }
         }

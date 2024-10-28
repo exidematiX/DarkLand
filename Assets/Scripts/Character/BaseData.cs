@@ -9,6 +9,4 @@ public class BaseData : UnitData
         base.Start();
         chooseUIPrefab = Resources.Load<GameObject>("Prefabs/UIPrefabs/BaseChooseObj");
     }
-
-
 }

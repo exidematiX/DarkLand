@@ -48,9 +48,4 @@ public class ResourceConllectorLeon : MonoBehaviour
             carriedCapactiy = 0;
         }
     }
-
-    public void SetResourceTarget(ResourceNodeLeon target)//设置采集目标
-    {
-        currentTarget = target;
-    }
 }
