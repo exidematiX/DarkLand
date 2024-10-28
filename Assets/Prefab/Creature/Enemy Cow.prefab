@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 4586245448225668756}
   - component: {fileID: 1569393033078245783}
   - component: {fileID: 2325342761482182820}
+  - component: {fileID: 4050496648792745476}
+  - component: {fileID: 8670749740172655300}
+  - component: {fileID: 1638093142281788}
   m_Layer: 10
   m_Name: Enemy Cow
   m_TagString: Enemy Creature
@@ -36,6 +39,7 @@ Transform:
   m_Children:
   - {fileID: 4981830679825961770}
   - {fileID: 4827110726603278372}
+  - {fileID: 6122083763240022876}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &6916723095971529253
@@ -85,11 +89,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  atkValue: 30
-  atkRange: 1
+  chooseUIPrefab: {fileID: 0}
   chosenMark: {fileID: 0}
   healthSlider: {fileID: 0}
   _isChosen: 0
+  atkValue: 30
+  atkRange: 1
 --- !u!61 &1569393033078245783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,6 +170,62 @@ MonoBehaviour:
   enemyUICanvas: {fileID: 0}
   _isVisible: 0
   _currentState: 1
+  moveSpeed: 3
+--- !u!114 &4050496648792745476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820261850695284605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d0697281846ee4386b86fa370c61f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBarPrefab: {fileID: 8223733824110288040, guid: 1fddbcef816b2cd4695f1d799d1ef850, type: 3}
+  barPosition: {fileID: 6122083763240022876}
+  initialHealth: 10
+  maxHealth: 10
+--- !u!50 &8670749740172655300
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820261850695284605}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1638093142281788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820261850695284605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381616a948e516e49b329eb7a68f2352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1988991367017485987
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,6 +724,37 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1 &8060881267648992955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6122083763240022876}
+  m_Layer: 10
+  m_Name: Barposition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6122083763240022876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8060881267648992955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 358160409960249541}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9183934964241943665
 GameObject:
   m_ObjectHideFlags: 0

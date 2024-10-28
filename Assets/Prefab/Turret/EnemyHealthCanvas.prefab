@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 149235877143952956}
   - component: {fileID: 1813291297110731778}
   - component: {fileID: 4980968220628855797}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.49019608, g: 0.93333334, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.11106917, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88,8 +88,8 @@ GameObject:
   - component: {fileID: 3036722831742055637}
   - component: {fileID: 8670917426381476158}
   - component: {fileID: 1495290925059462390}
-  m_Layer: 5
-  m_Name: HealthCanvas
+  m_Layer: 10
+  m_Name: EnemyHealthCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8670917426381476158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 5048455422599930155}
   - component: {fileID: 5757995263066511673}
   - component: {fileID: 8861318789198984176}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Continer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

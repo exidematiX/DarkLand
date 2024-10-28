@@ -216,15 +216,20 @@ public class
 
     void SearchTarget()
     {
-        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(transform.position, viewRadius, friendlyUnitCombieLayerMask);
-
-        if (targetsInRange.Length > 0)
+        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(transform.position, viewRadius);
+        foreach (Collider2D target in targetsInRange)
         {
-            GameObject closestTarget = FindClosestTarget(targetsInRange);
-            if (closestTarget != null)
+            TurretHealth turret = target.GetComponent<TurretHealth>();
+            if (turret != null)
             {
-                targetTransform = closestTarget.transform;
+                targetTransform = turret.transform;
+                CreatureAniEventHandler aniHandler = GetComponentInChildren<CreatureAniEventHandler>();
+                if (aniHandler != null)
+                {
+                    aniHandler.SetTarget(turret);
+                }
                 CurrentState = EnemyState.Chasing;
+                break;
             }
         }
     }

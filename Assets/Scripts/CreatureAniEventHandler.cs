@@ -1,16 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+// CreatureAniEventHandler.cs
 using UnityEngine;
 
 public class CreatureAniEventHandler : MonoBehaviour
 {
     public EnemyAI enemyAI;
+    private TurretHealth targetTurretHealth;
+    public float damageAmount = 1f;
+
+    public void SetTarget(TurretHealth target)
+    {
+        targetTurretHealth = target;
+    }
+
     public void MeleeAttackFinished()
     {
-        //enemyAI.CurrentState = EnemyState.Idle;
-        //Debug.Log("造成伤害");
-        
-        if(enemyAI.targetDistance < enemyAI.creatureData.atkRange)
+        Debug.Log("造成伤害");
+
+        // 检查目标是否在攻击范围内
+        if (targetTurretHealth != null && enemyAI.targetDistance < enemyAI.creatureData.atkRange)
+        {
+            targetTurretHealth.DealDamage(damageAmount);
+        }
+
+        // 根据敌人的远近调整敌人状态
+        if (enemyAI.targetDistance < enemyAI.creatureData.atkRange)
         {
             enemyAI.CurrentState = EnemyState.MeleeAttacking;
         }
@@ -23,12 +36,9 @@ public class CreatureAniEventHandler : MonoBehaviour
             enemyAI.CurrentState = EnemyState.Patrolling;
         }
     }
+
     void Start()
     {
         enemyAI = GetComponentInParent<EnemyAI>();
-        //enemyAI.animator?.SetBool("isMeleeAttacking", false);
-        //enemyAI.animator?.SetBool("isWalking", false);
     }
-
-    
 }
