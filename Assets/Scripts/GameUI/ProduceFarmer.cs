@@ -18,7 +18,8 @@ public class ProduceFarmer : MonoBehaviour
 
     public void OnClickToProduceFarmer()
     {
-        Debug.Log("扣除资源");
+        if (!ResourceManagerLeon.instance.SpendResource("light", 5))
+            return;
         
         var targetPosition = baseTransform.position;
         targetPosition.x += Random.Range(-spawnRange,spawnRange);

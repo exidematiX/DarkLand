@@ -110,15 +110,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_0"
+      name: walkup1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 2260
-        width: 476
-        height: 640
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 128
+        y: 2211
+        width: 613
+        height: 689
+      alignment: 9
+      pivot: {x: 0.50000006, y: 0.57462764}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -131,15 +131,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_1"
+      name: IdleUp
       rect:
         serializedVersion: 2
-        x: 845
-        y: 2247
-        width: 523
-        height: 653
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 814
+        y: 2211
+        width: 613
+        height: 689
+      alignment: 9
+      pivot: {x: 0.474535, y: 0.54353285}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,15 +152,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_2"
+      name: walkup3
       rect:
         serializedVersion: 2
-        x: 1501
-        y: 2221
-        width: 505
-        height: 673
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1427
+        y: 2207
+        width: 613
+        height: 693
+      alignment: 9
+      pivot: {x: 0.5256161, y: 0.57187563}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,15 +173,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_3"
+      name: atkdown2
       rect:
         serializedVersion: 2
-        x: 147
-        y: 1609
-        width: 475
-        height: 617
+        x: 2246
+        y: 0
+        width: 553
+        height: 775
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -194,15 +194,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_4"
+      name: atkup1
       rect:
         serializedVersion: 2
-        x: 832
-        y: 1574
-        width: 514
-        height: 626
+        x: 2525
+        y: 2181
+        width: 553
+        height: 633
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -215,15 +215,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_5"
+      name: atkdown1
       rect:
         serializedVersion: 2
-        x: 1428
-        y: 1579
-        width: 664
-        height: 599
+        x: 1707
+        y: 0
+        width: 553
+        height: 775
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,15 +236,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_6"
+      name: IdleLeftRight
       rect:
         serializedVersion: 2
-        x: 130
-        y: 739
-        width: 518
-        height: 827
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 52
+        y: 1526
+        width: 625
+        height: 685
+      alignment: 9
+      pivot: {x: 0.49314427, y: 0.54378706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -257,15 +257,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_7"
+      name: walkleftright2
       rect:
         serializedVersion: 2
-        x: 974
-        y: 799
-        width: 565
+        x: 737
+        y: 1522
+        width: 617
         height: 685
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.51388973, y: 0.53127635}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,15 +278,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_8"
+      name: walkleftright3
       rect:
         serializedVersion: 2
-        x: 1638
-        y: 833
-        width: 553
-        height: 634
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1431
+        y: 1526
+        width: 609
+        height: 681
+      alignment: 9
+      pivot: {x: 0.49296442, y: 0.6573008}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,15 +299,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_9"
+      name: atkdown3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 66
-        width: 574
-        height: 561
+        x: 2782
+        y: 0
+        width: 553
+        height: 775
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -320,15 +320,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_10"
+      name: atkup2
       rect:
         serializedVersion: 2
-        x: 657
-        y: 70
-        width: 445
-        height: 557
+        x: 2516
+        y: 1526
+        width: 553
+        height: 633
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -341,15 +341,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_11"
+      name: walkdown2
       rect:
         serializedVersion: 2
-        x: 1197
-        y: 53
-        width: 424
-        height: 579
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1167
+        y: 0
+        width: 553
+        height: 775
+      alignment: 9
+      pivot: {x: -1.6230634, y: -1.3798141}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -362,15 +362,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_12"
+      name: atkleftright1
       rect:
         serializedVersion: 2
-        x: 1685
-        y: 32
-        width: 553
-        height: 775
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 52
+        y: 767
+        width: 689
+        height: 759
+      alignment: 9
+      pivot: {x: 0.4591915, y: 0.5846813}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -383,15 +383,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_13"
+      name: walkdown1
       rect:
         serializedVersion: 2
-        x: 2302
-        y: 49
-        width: 476
-        height: 630
+        x: 608
+        y: 0
+        width: 553
+        height: 775
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -404,15 +404,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_14"
+      name: atkleftright3
       rect:
         serializedVersion: 2
-        x: 2829
-        y: 15
-        width: 497
-        height: 698
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1564
+        y: 767
+        width: 677
+        height: 759
+      alignment: 9
+      pivot: {x: 0.4430375, y: 0.50564545}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -425,15 +425,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_15"
+      name: IdleDown
       rect:
         serializedVersion: 2
-        x: 2568
-        y: 2161
-        width: 544
-        height: 699
+        x: 56
+        y: 0
+        width: 553
+        height: 775
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -446,15 +446,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_16"
+      name: atkup3
       rect:
         serializedVersion: 2
-        x: 2542
-        y: 1510
-        width: 566
-        height: 634
+        x: 2550
+        y: 892
+        width: 533
+        height: 633
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -467,15 +467,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u54E5\u5E03\u6797ani2_17"
+      name: atkleftright2
       rect:
         serializedVersion: 2
-        x: 2542
-        y: 889
-        width: 574
-        height: 617
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 883
+        y: 767
+        width: 681
+        height: 755
+      alignment: 9
+      pivot: {x: 0.4685401, y: 0.4886494}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,24 +498,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u54E5\u5E03\u6797ani2_0": 787299959
-      "\u54E5\u5E03\u6797ani2_1": -1461389240
-      "\u54E5\u5E03\u6797ani2_10": -702288665
-      "\u54E5\u5E03\u6797ani2_11": -248073255
-      "\u54E5\u5E03\u6797ani2_12": -1884498619
-      "\u54E5\u5E03\u6797ani2_13": 1054323859
-      "\u54E5\u5E03\u6797ani2_14": -151145914
-      "\u54E5\u5E03\u6797ani2_15": -353647408
-      "\u54E5\u5E03\u6797ani2_16": -1841622892
-      "\u54E5\u5E03\u6797ani2_17": -587242646
-      "\u54E5\u5E03\u6797ani2_2": -1663666402
-      "\u54E5\u5E03\u6797ani2_3": 509637657
-      "\u54E5\u5E03\u6797ani2_4": -1299658734
-      "\u54E5\u5E03\u6797ani2_5": 296258007
-      "\u54E5\u5E03\u6797ani2_6": -12233582
-      "\u54E5\u5E03\u6797ani2_7": -402864409
-      "\u54E5\u5E03\u6797ani2_8": 485066393
-      "\u54E5\u5E03\u6797ani2_9": 98052313
+      IdleDown: -353647408
+      IdleLeftRight: -12233582
+      IdleUp: -1461389240
+      atkdown1: 296258007
+      atkdown2: 509637657
+      atkdown3: 98052313
+      atkleftright1: -1884498619
+      atkleftright2: -587242646
+      atkleftright3: -151145914
+      atkup1: -1299658734
+      atkup2: -702288665
+      atkup3: -1841622892
+      walkdown1: 1054323859
+      walkdown2: -248073255
+      walkleftright2: -402864409
+      walkleftright3: 485066393
+      walkup1: 787299959
+      walkup3: -1663666402
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

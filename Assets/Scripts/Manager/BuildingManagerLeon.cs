@@ -11,6 +11,8 @@ public class BuildingManagerLeon : MonoBehaviour
 
     void SelectedBuild(int index)//选择建造建筑
     {
+        if (ResourceManagerLeon.instance.GetResourceAmount("light") < 10)
+            return;
         selectedBuildIndex = index;
         StartBuildPreview();
     }
@@ -47,7 +49,7 @@ public class BuildingManagerLeon : MonoBehaviour
 
         // 生成正式的建筑物
         Instantiate(buildingPrefabs[selectedBuildIndex], currentPreview.transform.position, Quaternion.identity);
-
+        ResourceManagerLeon.instance.SpendResource("light",10);
         // 取消预览
         Destroy(currentPreview);
         currentPreview = null;

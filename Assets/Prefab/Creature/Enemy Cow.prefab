@@ -235,7 +235,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1176527862598358231}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4894882555075826197}
   - component: {fileID: 2102763723944037346}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.4, y: 152.9}
+  m_AnchoredPosition: {x: -2.4, y: 110}
   m_SizeDelta: {x: 81.6, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102763723944037346
@@ -362,13 +362,13 @@ GameObject:
   - component: {fileID: 306022734080426859}
   - component: {fileID: 4122860670146795278}
   - component: {fileID: 8932202211588443928}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ChosenMark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &306022734080426859
 RectTransform:
   m_ObjectHideFlags: 0
@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.1, y: 2.5}
-  m_SizeDelta: {x: 100, y: 39.74}
+  m_AnchoredPosition: {x: -0.00069427, y: -71}
+  m_SizeDelta: {x: 188.64, y: 57.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4122860670146795278
 CanvasRenderer:
@@ -437,7 +437,7 @@ GameObject:
   - component: {fileID: 6890721011809129871}
   - component: {fileID: 5473228094060417078}
   - component: {fileID: 6360103643727810171}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ RectTransform:
   m_Father: {fileID: 1176527862598358231}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.37998962, y: 0}
   m_SizeDelta: {x: 2.77, y: -4.02}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -529,8 +529,8 @@ Transform:
   m_GameObject: {fileID: 5913202488745126838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.56, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
+  m_LocalPosition: {x: 0.0484, y: -0.0747, z: 0}
+  m_LocalScale: {x: 0.29260206, y: 0.26377216, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 358160409960249541}
@@ -576,7 +576,7 @@ SpriteRenderer:
   m_SortingLayerID: 892283
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -963450458, guid: c4819f27548a39646b677dbaf64693c6, type: 3}
+  m_Sprite: {fileID: -353647408, guid: 4c7bab06b7ae781448325253ce5547f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 0}
+  damageAmount: 1
 --- !u!1 &8005739196154160555
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,13 +634,13 @@ GameObject:
   - component: {fileID: 5315450983217348591}
   - component: {fileID: 1388154751116048000}
   - component: {fileID: 6526083639118382596}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Enemy Creature
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4827110726603278372
 RectTransform:
   m_ObjectHideFlags: 0
@@ -766,7 +767,7 @@ GameObject:
   - component: {fileID: 1624219225726023663}
   - component: {fileID: 2481582229116949528}
   - component: {fileID: 7649864707587029198}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}

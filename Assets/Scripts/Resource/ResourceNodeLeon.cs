@@ -7,7 +7,7 @@ public class ResourceNodeLeon : MonoBehaviour
     //此脚本为资源点逻辑
     public enum ResourceType { light};//资源类型
     public ResourceType type;
-    int resourceAmount = 10;
+    int resourceAmount = 100;
 
     public int Harvest(int amount)//挖矿
     {

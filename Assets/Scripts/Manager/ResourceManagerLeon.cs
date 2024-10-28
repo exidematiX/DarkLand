@@ -22,7 +22,7 @@ public class ResourceManagerLeon : MonoBehaviour
             return;
         }
 
-        resource.Add("light", 0);
+        resource.Add("light", 20);
     }
 
     public bool AddResource(string key, int value)
@@ -34,6 +34,7 @@ public class ResourceManagerLeon : MonoBehaviour
         else
         {
             resource[key] += value;
+            OnResourceChanged();
             return true;
         }
     }
@@ -46,7 +47,11 @@ public class ResourceManagerLeon : MonoBehaviour
         }
         else
         {
+
+            if(resource[key] - value<=0)
+                return false;
             resource[key] -= value;
+            OnResourceChanged();
             return true;
         }
     }

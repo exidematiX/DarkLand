@@ -53,7 +53,6 @@ MonoBehaviour:
   navMeshAgent: {fileID: 6916723095971529253}
   creatureData: {fileID: 0}
   animator: {fileID: 0}
-  fieldOfView: {fileID: 0}
 --- !u!195 &6916723095971529253
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -101,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  atkValue: 30
-  atkRange: 30
+  chooseUIPrefab: {fileID: 0}
   chosenMark: {fileID: 0}
   healthSlider: {fileID: 0}
   _isChosen: 0
+  atkValue: 30
+  atkRange: 30
 --- !u!61 &1569393033078245783
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -500,7 +500,7 @@ SpriteRenderer:
   m_SortingLayerID: -1586654307
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 32471020, guid: 545eed4397fd1464d8e6e07e622ae3f4, type: 3}
+  m_Sprite: {fileID: -89836627, guid: 82121143b13206444baed1b3e1fd23df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -521,7 +521,7 @@ Animator:
   m_GameObject: {fileID: 5913202488745126838}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ac7337061214a3c4b906e44a919ca5a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1378ffa9de2bfa143a40dd30c06262b9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
