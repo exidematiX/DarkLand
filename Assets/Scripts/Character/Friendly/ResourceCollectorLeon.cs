@@ -18,7 +18,7 @@ public class ResourceConllectorLeon : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        baseLocation = FindObjectOfType<Base>().transform;
+        baseLocation = FindObjectOfType<BaseData>().transform;
     }
 
     private void Update()
