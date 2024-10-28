@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
 
     [SerializeField] private Transform Rotationtransform;
 
+    public GameObject chooseUIPrefab;
+
     public EnemyAI CurrentEnemyTarget { get; set; }
 
     private bool _gameStarted;
@@ -19,7 +21,15 @@ public class Turret : MonoBehaviour
     {
         _enemies = new List<EnemyAI>();
         _gameStarted = true;
+
+        chooseUIPrefab = Resources.Load<GameObject>("Prefabs/UIPrefabs/TurretChooseObj");
+        FieldOfView.Instance.SetOrigin(new KeyValuePair<GameObject, Vector3>(gameObject, transform.position), attackRange);
     }
+
+    //private void OnDestroy()
+    //{
+    //    FieldOfView.Instance.SetOrigin(new KeyValuePair<GameObject, Vector3>(gameObject, transform.position), attackRange);
+    //}
 
     private void Update()
     {
@@ -27,6 +37,7 @@ public class Turret : MonoBehaviour
         RotateTowardsTarget();
     }
 
+    
     private void GetCurrentEnemyTarget()
     {
         if (_enemies.Count <= 0)

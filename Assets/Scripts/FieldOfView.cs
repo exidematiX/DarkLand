@@ -12,10 +12,12 @@ public class FieldOfView : MonoBehaviour
     private Mesh mesh;
     private MeshRenderer meshRenderer;
     private float fov;
-    [SerializeField] private float viewDistance;
+    [SerializeField] private float viewDefaultDistance;
     public Dictionary<GameObject, Vector3> originsDic;
+    public Dictionary<GameObject, float> rangesDic;
     //public Vector3 origin;
     public float startingAngle;
+    public static FieldOfView Instance;
 
     private void Start()
     {
@@ -24,108 +26,17 @@ public class FieldOfView : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         meshRenderer.sortingLayerName = "mask";
         fov = 360f;
-        viewDistance = 10f;
-        originsDic = new Dictionary<GameObject, Vector3>();
+        viewDefaultDistance = 10f;
+        
         //origin = Vector3.zero;
     }
 
-    //private void LateUpdate()
-    //{
-    //    int rayCount = 360;
-    //    float angle = 0;
-    //    float angleIncrease = fov / rayCount;
-
-    //    Vector3[] vertices = new Vector3[originsDic.Count * (rayCount + 1 + 1)];
-    //    Vector2[] uv = new Vector2[vertices.Length];
-    //    int[] triangles = new int[originsDic.Count * rayCount * 3];
-
-    //    //Vector3[] vertices = new Vector3[rayCount + 1 + 1];
-    //    //Vector2[] uv = new Vector2[vertices.Length];
-    //    //int[] triangles = new int[rayCount * 3];
-
-    //    int count = 0;
-    //    foreach (var origin in originsDic)
-    //    {
-    //        vertices[0 + count * (rayCount + 1 + 1)] = origin.Value;
-
-    //        int vertexIndex = 1;
-    //        int triangleIndex = 0;
-
-    //        angle = 0;
-    //        for (int i = 0; i <= rayCount; i++)
-    //        {
-    //            Vector3 vertex;
-    //            RaycastHit2D raycastHit2D = Physics2D.Raycast(origin.Value, GetVectorFromAngle(angle), viewDistance, layerMask);
-    //            if (raycastHit2D.collider == null)
-    //            {
-    //                // No hit
-    //                //Debug.Log("No hit");
-    //                vertex = origin.Value + GetVectorFromAngle(angle) * viewDistance;
-    //            }
-    //            else
-    //            {
-    //                //Debug.Log("Hit object");
-    //                vertex = raycastHit2D.point;
-    //            }
-    //            vertices[vertexIndex + count * (rayCount + 1 + 1)] = vertex;
-
-    //            if (i > 0)
-    //            {
-    //                triangles[count * rayCount * 3 + triangleIndex + 0] = count * rayCount * 3 + 0;
-    //                triangles[count * rayCount * 3 + triangleIndex + 1] = count * rayCount * 3 + vertexIndex - 1;
-    //                triangles[count * rayCount * 3 + triangleIndex + 2] = count * rayCount * 3 + vertexIndex;
-
-    //                triangleIndex += 3;
-    //            }
-
-    //            vertexIndex++;
-    //            angle -= angleIncrease;
-    //        }
-    //        count++;
-    //    }
-    //    mesh.vertices = vertices;
-    //    mesh.uv = uv;
-    //    mesh.triangles = triangles;
-    //    //mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
-    //    //vertices[0] = origin;
-
-    //    //int vertexIndex = 1;
-    //    //int triangleIndex = 0;
-    //    //for (int i = 0; i <= rayCount; i++)
-    //    //{
-    //    //    Vector3 vertex;
-    //    //    RaycastHit2D raycastHit2D = Physics2D.Raycast(origin, GetVectorFromAngle(angle), viewDistance, layerMask);
-    //    //    if (raycastHit2D.collider == null)
-    //    //    {
-    //    //        // No hit
-    //    //        Debug.Log("No hit");
-    //    //        vertex = origin + GetVectorFromAngle(angle) * viewDistance;
-    //    //    }
-    //    //    else
-    //    //    {
-    //    //        Debug.Log("Hit object");
-    //    //        vertex = raycastHit2D.point;
-    //    //    }
-    //    //    vertices[vertexIndex] = vertex;
-
-    //    //    if (i > 0)
-    //    //    {
-    //    //        triangles[triangleIndex + 0] = 0;
-    //    //        triangles[triangleIndex + 1] = vertexIndex - 1;
-    //    //        triangles[triangleIndex + 2] = vertexIndex;
-
-    //    //        triangleIndex += 3;
-    //    //    }
-
-    //    //    vertexIndex++;
-    //    //    angle -= angleIncrease;
-    //    //    mesh.vertices = vertices;
-    //    //}
-    //    //mesh.vertices = vertices;
-    //    //mesh.uv = uv;
-    //    //mesh.triangles = triangles;
-    //    //mesh.bounds = new Bounds(origin, Vector3.one * 1000f);
-    //}
+    private void Awake()
+    {
+        originsDic = new Dictionary<GameObject, Vector3>();
+        rangesDic = new Dictionary<GameObject, float>();
+        Instance = this;
+    }
 
     private void LateUpdate()
     {
@@ -152,10 +63,10 @@ public class FieldOfView : MonoBehaviour
             for (int i = 0; i <= rayCount; i++)
             {
                 Vector3 vertex;
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(origin.Value, GetVectorFromAngle(angle), viewDistance, layerMask);
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(origin.Value, GetVectorFromAngle(angle), rangesDic[origin.Key], layerMask);
                 if (raycastHit2D.collider == null)
                 {
-                    vertex = origin.Value + GetVectorFromAngle(angle) * viewDistance;
+                    vertex = origin.Value + GetVectorFromAngle(angle) * viewDefaultDistance;
                 }
                 else
                 {
@@ -215,7 +126,27 @@ public class FieldOfView : MonoBehaviour
         else
         {
             originsDic.Add(objOriginPair.Key, objOriginPair.Value);
+            rangesDic.Add(objOriginPair.Key, viewDefaultDistance);
             //Debug.Log($"成功添加:{objOriginPair.Key.name}, {objOriginPair.Value}");
+        }
+
+    }
+
+    public void SetOrigin(KeyValuePair<GameObject, Vector3> objOriginPair, float viewRange)
+    {
+        if (originsDic.ContainsKey(objOriginPair.Key))
+        {
+            //Debug.Log($"why");
+            if (!originsDic[objOriginPair.Key].Equals(objOriginPair.Value))
+            {
+                this.originsDic[objOriginPair.Key] = objOriginPair.Value;
+            }
+        }
+        else
+        {
+            Debug.Log($"成功添加:{objOriginPair.Key.name}, {objOriginPair.Value}, {viewRange}");
+            originsDic.Add(objOriginPair.Key, objOriginPair.Value);
+            rangesDic.Add(objOriginPair.Key, viewRange);
         }
 
     }

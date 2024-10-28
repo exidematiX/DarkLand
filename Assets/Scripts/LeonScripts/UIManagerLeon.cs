@@ -9,6 +9,7 @@ public class UIManagerLeon : MonoBehaviour
 
     private void Start()
     {
+        lightText = transform.Find("HumanCondition/Resource/light/lightAmount").gameObject.GetComponent<Text>();
         UpdateUI();
         ResourceManagerLeon.instance.OnResourceChanged += UpdateUI;
     }
@@ -17,7 +18,7 @@ public class UIManagerLeon : MonoBehaviour
         ResourceManagerLeon.instance.OnResourceChanged -= UpdateUI;
     }
 
-    void UpdateUI()//¸üÐÂUI
+    void UpdateUI()//æ›´æ–°UI
     {
         lightText.text =" "+ResourceManagerLeon.instance.GetResourceAmount("light");
     }

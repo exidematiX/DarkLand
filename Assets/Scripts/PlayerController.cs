@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
 {
     private readonly string _friendlyCreatureTag = "Friendly Creature";
     private readonly string _enemyCreatureTag = "Enemy Creature";
+    private readonly string _friendlyBuildingTag = "Friendly Building";
+    private readonly string _baseTag = "Base";
 
     public static PlayerController Instance;
 
@@ -54,7 +56,11 @@ public class PlayerController : MonoBehaviour
     public Vector3 currentPoint;//在拖移过程中，玩家鼠标指针所在的实时位置
     public Vector3 endPoint;//框的终止点，即放开鼠标左键时指针的位置
 
+    [Header("选中物体")]
     public List<GameObject> chosenObjs = new List<GameObject>();
+
+    [Header("基地Tranform")]
+    public Transform baseTransform;
 
     public Material GLRectMat;//绘图的材质，在Inspector中设置
     public Color GLRectColor;//矩形的内部颜色，在Inspector中设置
@@ -74,9 +80,19 @@ public class PlayerController : MonoBehaviour
     [Header("调试")]
     public bool disableCameraEgdemovement = false;
     public bool canChoseEnemy = true;
+    public bool disableRectChoose = false;
 
     [Header("框选物体")]
     public GameObject renderChose;
+
+    [Header("UI相关")]
+    public GameObject chooseListUIObj;
+    public GameObject chooseObjGrid;
+    public GameObject actionBoardUIObj;
+    public GameObject actionUIGrid;
+    public GameObject buildBoardObj;
+    public List <GameObject> chooseUIList;
+    private Dictionary<GameObject, GameObject> gameObjUIChooseObjDic;
     private void Awake()
     {
         Instance = this;
@@ -84,8 +100,14 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        RectChoose();
+        if (!disableRectChoose)
+        {
+            RectChoose();
+        }
+        
         IssueOrder();
+        UpdateGameUI();
+
         if (!disableCameraEgdemovement)
         {
             CameraEdgeMove();
@@ -96,7 +118,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main.gameObject;
-        
+        baseTransform = GameObject.FindGameObjectsWithTag(_baseTag)[0].transform;
+        chooseListUIObj = GameObject.FindGameObjectWithTag("UI").transform.Find("ChooseList").gameObject;
+        chooseObjGrid = chooseListUIObj.transform.Find("ChooseListBackgroundImage/ChooseObjGrid").gameObject;
+
+        actionBoardUIObj = GameObject.FindGameObjectWithTag("UI").transform.Find("ActionBoard").gameObject;
+        actionUIGrid = actionBoardUIObj.transform.Find("ActionBoardImage/ActionBoardGrid").gameObject;
+        buildBoardObj = GameObject.FindGameObjectWithTag("UI").transform.Find("BuildingSystem").gameObject;
+        chooseUIList = new List<GameObject>();
+        gameObjUIChooseObjDic = new Dictionary<GameObject, GameObject>();
     }
 
     public void RectChoose()
@@ -134,7 +164,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                CheckWhetherInRect(selector, ref chosenObjs, _friendlyCreatureTag);
+                CheckWhetherInRect(selector, ref chosenObjs, _friendlyCreatureTag, _friendlyBuildingTag, _baseTag);
             }
             renderChose.SetActive(false);
             //CheckWhetherInRect(selector, "Enemy Creature", ref chosenObjs);
@@ -156,12 +186,12 @@ public class PlayerController : MonoBehaviour
             Vector3 cameraPos = Camera.main.WorldToScreenPoint(obj.transform.position);
             if (cameraPos.x > _selector_.Xmin && cameraPos.x < _selector_.Xmax && cameraPos.y > _selector_.Ymin && cameraPos.y < _selector_.Ymax)
             {
-                if(obj.GetComponent<CreatureData>()?.IsChosen != true)
+                if(obj.GetComponent<UnitData>()?.IsChosen != true)
                 {
                     chosenObjs.Add(obj);
-                    if(obj.GetComponent<CreatureData>() != null)
+                    if(obj.GetComponent<UnitData>() != null)
                     {
-                        obj.GetComponent<CreatureData>().IsChosen = true;
+                        obj.GetComponent<UnitData>().IsChosen = true;
                     }
                 }
 
@@ -176,15 +206,24 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) )
         {
+            List<GameObject> chosenFriendlyCreature = new List<GameObject>();
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            //Debug.Log($"MouseWorldPos({mouseWorldPos.x}, {mouseWorldPos.y})");
+            foreach (GameObject obj in chosenObjs)
+            {
+                if (obj.CompareTag(_friendlyCreatureTag))
+                {
+                    chosenFriendlyCreature.Add(obj);
+                }
+            }
+                //Debug.Log($"MouseWorldPos({mouseWorldPos.x}, {mouseWorldPos.y})");
 
-            //foreach (GameObject obj in chosenObjs)
-            //{
-            //    obj.GetComponent<CreatureMove>().targetPos = mouseWorldPos;
-            //}
-            MoveUnitsInFormation(mouseWorldPos);
+                //foreach (GameObject obj in chosenObjs)
+                //{
+                //    obj.GetComponent<CreatureMove>().targetPos = mouseWorldPos;
+                //}
+
+            MoveUnitsInFormation(mouseWorldPos, chosenFriendlyCreature);
 
             if (cameraStatus == CameraStatus.Free)
             {
@@ -194,9 +233,9 @@ public class PlayerController : MonoBehaviour
     }
 
     // 将单位排列成一个方阵并移动
-    void MoveUnitsInFormation(Vector3 destination)
+    void MoveUnitsInFormation(Vector3 destination, List<GameObject> chosenFriendlyCreature)
     {
-        int unitCount = chosenObjs.Count;
+        int unitCount = chosenFriendlyCreature.Count;
         int sideCount = Mathf.CeilToInt(Mathf.Sqrt(unitCount)); // 计算方阵的边长
 
         //float unitSpacing = 1.0f; 
@@ -212,9 +251,9 @@ public class PlayerController : MonoBehaviour
 
                 Vector3 offsetPosition = formationStart + new Vector3(x * unitSpacing, y * unitSpacing, 0);
                 //chosenObjs[i].GetComponent<NavMeshAgent>().SetDestination(offsetPosition); // 移动单位
-                if(chosenObjs[i].GetComponent<CreatureMove>() != null && chosenObjs[i].tag == _friendlyCreatureTag)
+                if(chosenFriendlyCreature[i].GetComponent<CreatureMove>() != null && chosenFriendlyCreature[i].tag == _friendlyCreatureTag)
                 {
-                    chosenObjs[i].GetComponent<CreatureMove>().targetPos = offsetPosition;
+                    chosenFriendlyCreature[i].GetComponent<CreatureMove>().targetPos = offsetPosition;
                     i++;
                 }
             }
@@ -225,12 +264,59 @@ public class PlayerController : MonoBehaviour
     {
         foreach (GameObject obj in chosenObjs)
         {
-            if(obj.GetComponent<CreatureData>() != null)
+            if(obj.GetComponent<UnitData>() != null)
             {
-                obj.GetComponent<CreatureData>().IsChosen = false;
+                obj.GetComponent<UnitData>().IsChosen = false;
             }
         }
         chosenObjs.Clear();
+
+        foreach (var obj in chooseUIList)
+        {
+            Destroy(obj);
+        }
+        chooseUIList.Clear();
+        gameObjUIChooseObjDic.Clear();
+    }
+
+    void UpdateGameUI()
+    {
+        if(chosenObjs.Count == 0)
+        {
+            chooseListUIObj.SetActive(false);
+        }
+        else
+        {
+            chooseListUIObj.SetActive(true);
+
+            foreach (GameObject obj in chosenObjs)
+            {
+                if (!gameObjUIChooseObjDic.ContainsKey(obj))
+                {
+                    GameObject uiChooseObj = Instantiate(obj.GetComponent<UnitData>().chooseUIPrefab, chooseObjGrid.transform);
+                    gameObjUIChooseObjDic.Add(obj, uiChooseObj);
+                    chooseUIList.Add(uiChooseObj);
+                }
+            }
+        }
+
+        if(ListContainTag(chosenObjs, _baseTag, _friendlyBuildingTag))
+        {
+            actionBoardUIObj.SetActive(true);
+        }
+        else
+        {
+            actionBoardUIObj.SetActive(false);
+        }
+
+        if(ListContainTag(chosenObjs, _friendlyCreatureTag))
+        {
+            buildBoardObj.SetActive(true);
+        }
+        else
+        {
+            buildBoardObj.SetActive(false);
+        }
     }
 
     public void CameraEdgeMove()
@@ -293,7 +379,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H))
         {
-            mainCamera.transform.position = new Vector3(0, 0, mainCamera.transform.position.z);
+            mainCamera.transform.position = new Vector3(baseTransform.position.x, baseTransform.position.y, mainCamera.transform.position.z);
         }
     }
 
@@ -318,6 +404,21 @@ public class PlayerController : MonoBehaviour
         }
 
         return middiumPos;
+    }
+    
+    public static bool ListContainTag(List<GameObject> GameObjList, params string[] tags)
+    {
+        foreach(var tag in tags)
+        {
+            foreach(var obj in GameObjList)
+            {
+                if(obj.tag == tag)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
 }

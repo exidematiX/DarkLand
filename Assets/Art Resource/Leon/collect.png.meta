@@ -173,13 +173,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: collect_3
+      name: NormalTower
       rect:
         serializedVersion: 2
-        x: 1318
-        y: 1077
+        x: 1319
+        y: 1076
         width: 454
-        height: 423
+        height: 202
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,6 +382,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: NormalTowerHide
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 1278
+        width: 454
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 519ae72ac16da2d4a935245c7e17fa08
+      internalID: -662755088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NormalTowerUI
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 1075
+        width: 456
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03da684071b28594a9a275e2cf5207fb
+      internalID: -356070959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -393,13 +435,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      NormalTower: 882721834
+      NormalTowerHide: -662755088
+      NormalTowerUI: -356070959
       collect_0: -63577261
       collect_1: -2034266741
       collect_10: 1918171144
       collect_11: -1839741621
       collect_12: 1217558091
       collect_2: 536428227
-      collect_3: 882721834
       collect_4: 1529961725
       collect_5: 435367670
       collect_6: -1561448802

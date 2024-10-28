@@ -6,8 +6,6 @@ public class TurretEvent : MonoBehaviour
     private Turret _turret;
 
 
-   
-
     private IEnumerator PlayHurt()
     {
         // 这里是受伤动画或者效果逻辑

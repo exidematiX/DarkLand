@@ -57,7 +57,7 @@ public class MyRectRendering : MonoBehaviour
             mesh.RecalculateBounds();
 
             this.gameObject.SetActive(true);
-            Debug.Log($"vertices[0]：{vertices[0]}，vertices[1]：{vertices[1]}，vertices[2]：{vertices[2]}，vertices[3]：{vertices[3]}");
+            //Debug.Log($"vertices[0]：{vertices[0]}，vertices[1]：{vertices[1]}，vertices[2]：{vertices[2]}，vertices[3]：{vertices[3]}");
             
             //gameObject.GetComponent<MeshFilter>().mesh = mesh;
         }
