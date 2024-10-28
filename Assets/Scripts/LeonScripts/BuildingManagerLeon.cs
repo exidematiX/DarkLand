@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class BuildingManagerLeon : MonoBehaviour
 {
-    public GameObject[] buildingPrefabs;//¿É½¨ÔìµÄ½¨ÖşÔ¤ÖÆÌåÊı×é
-    private int selectedBuildIndex = -1;//½¨ÖşË÷Òı
+    public GameObject[] buildingPrefabs;//å¯å»ºé€ çš„å»ºç­‘é¢„åˆ¶ä½“æ•°ç»„
+    private int selectedBuildIndex = -1;//å»ºç­‘ç´¢å¼•
     GameObject currentPreview;
-    public LayerMask unbuildingMask;//²»¿É·ÅÖÃÍ¼²ã
+    public LayerMask unbuildingMask;//ä¸å¯æ”¾ç½®å›¾å±‚
 
-    void SelectedBuild(int index)//Ñ¡Ôñ½¨Ôì½¨Öş
+    void SelectedBuild(int index)//é€‰æ‹©å»ºé€ å»ºç­‘
     {
         selectedBuildIndex = index;
         StartBuildPreview();
     }
 
-    void StartBuildPreview()//¿ªÊ¼Ô¤ÀÀ½¨Öş
+    void StartBuildPreview()//å¼€å§‹é¢„è§ˆå»ºç­‘
     {
         if (selectedBuildIndex < 0 || selectedBuildIndex >= buildingPrefabs.Length)
             return;
 
-        currentPreview = Instantiate(buildingPrefabs[selectedBuildIndex]);//ÊµÀı»¯Ô¤ÀÀ½¨Ôì
+        currentPreview = Instantiate(buildingPrefabs[selectedBuildIndex]);//å®ä¾‹åŒ–é¢„è§ˆå»ºé€ 
         currentPreview.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.5f);
     }
     private void Update()
@@ -32,7 +32,7 @@ public class BuildingManagerLeon : MonoBehaviour
             currentPreview.transform.position = worldPosition;
 
             bool isPlacement = IsPlacement(worldPosition);
-            currentPreview.GetComponent<Renderer>().material.color = isPlacement ? Color.green : Color.red;//¿É½¨ÔìÊÇÂÌÉ«£¬²»¿ÉÊÇºìÉ«
+            currentPreview.GetComponent<Renderer>().material.color = isPlacement ? Color.green : Color.red;//å¯å»ºé€ æ˜¯ç»¿è‰²ï¼Œä¸å¯æ˜¯çº¢è‰²
 
             if (Input.GetMouseButtonDown(0) && isPlacement)
             {
@@ -45,19 +45,19 @@ public class BuildingManagerLeon : MonoBehaviour
     {
         if (selectedBuildIndex < 0 || currentPreview == null) return;
 
-        // Éú³ÉÕıÊ½µÄ½¨ÖşÎï
+        // ç”Ÿæˆæ­£å¼çš„å»ºç­‘ç‰©
         Instantiate(buildingPrefabs[selectedBuildIndex], currentPreview.transform.position, Quaternion.identity);
 
-        // È¡ÏûÔ¤ÀÀ
+        // å–æ¶ˆé¢„è§ˆ
         Destroy(currentPreview);
         currentPreview = null;
         selectedBuildIndex = -1;
     }
 
-    private bool IsPlacement(Vector3 position)//ÄÜ·ñ·ÅÖÃ
+    private bool IsPlacement(Vector3 position)//èƒ½å¦æ”¾ç½®
     {
         float buildSize = currentPreview.transform.localScale.x / 2;
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, buildSize, unbuildingMask);//ÒÔbuildsizeÎª°ë¾¶Õì²â·¶Î§ÄÚµÄobject
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, buildSize, unbuildingMask);//ä»¥buildsizeä¸ºåŠå¾„ä¾¦æµ‹èŒƒå›´å†…çš„object
         return colliders.Length == 0;
     }
 

@@ -6,14 +6,14 @@ using JetBrains.Annotations;
 
 public class ResourceConllectorLeon : MonoBehaviour
 {
-    //´Ë½Å±¾¹ÒÔØÔÚÎª¹¤ÈËĞĞÎªÂß¼­
-    public int carryCapactiy = 10;//¹¤ÈË±³°ü´óĞ¡
-    public int carriedCapactiy = 0;//ÒÑĞ¯´øÊıÁ¿
-    public ResourceNodeLeon.ResourceType carriedResourceType;//±³°üÄÚÎïÆ·ÖÖÀà
+    //æ­¤è„šæœ¬æŒ‚è½½åœ¨ä¸ºå·¥äººè¡Œä¸ºé€»è¾‘
+    public int carryCapactiy = 10;//å·¥äººèƒŒåŒ…å¤§å°
+    public int carriedCapactiy = 0;//å·²æºå¸¦æ•°é‡
+    public ResourceNodeLeon.ResourceType carriedResourceType;//èƒŒåŒ…å†…ç‰©å“ç§ç±»
     NavMeshAgent agent;
 
-    public ResourceNodeLeon currentTarget;//ÏÖÔÚµÄÄ¿±ê
-    Transform baseLocation;//»ùµØ×ø±ê
+    public ResourceNodeLeon currentTarget;//ç°åœ¨çš„ç›®æ ‡
+    Transform baseLocation;//åŸºåœ°åæ ‡
 
     private void Start()
     {
@@ -33,23 +33,23 @@ public class ResourceConllectorLeon : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)//²É¼¯×ÊÔ´»ò¸ø»ùµØ´æ´¢
+    private void OnTriggerEnter2D(Collider2D other)//é‡‡é›†èµ„æºæˆ–ç»™åŸºåœ°å­˜å‚¨
     {
-        if (other.gameObject.CompareTag("Resource") && carriedCapactiy < carryCapactiy)//²É¼¯×ÊÔ´
+        if (other.gameObject.CompareTag("Resource") && carriedCapactiy < carryCapactiy)//é‡‡é›†èµ„æº
         {
             currentTarget = other.GetComponent<ResourceNodeLeon>();
             int havesedAmount = currentTarget.Harvest(carryCapactiy - carriedCapactiy);
             carriedCapactiy += havesedAmount;
             carriedResourceType = currentTarget.type;
         }
-        else if (other.gameObject.CompareTag("Base") && carriedCapactiy > 0)//·µ»Ø»ùµØÇå¿Õ±³°ü
+        else if (other.gameObject.CompareTag("Base") && carriedCapactiy > 0)//è¿”å›åŸºåœ°æ¸…ç©ºèƒŒåŒ…
         {
             ResourceManagerLeon.instance.AddResource(carriedResourceType.ToString(), carriedCapactiy);
             carriedCapactiy = 0;
         }
     }
 
-    public void SetResourceTarget(ResourceNodeLeon target)//ÉèÖÃ²É¼¯Ä¿±ê
+    public void SetResourceTarget(ResourceNodeLeon target)//è®¾ç½®é‡‡é›†ç›®æ ‡
     {
         currentTarget = target;
     }

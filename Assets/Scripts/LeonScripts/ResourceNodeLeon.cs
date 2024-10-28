@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ResourceNodeLeon : MonoBehaviour
 {
-    //此脚本为资源点逻辑
-    public enum ResourceType { light};//资源类型
+    //姝よ剼鏈负璧勬簮鐐归�昏緫
+    public enum ResourceType { light};//璧勬簮绫诲瀷
     public ResourceType type;
     int resourceAmount = 10;
 
-    public int Harvest(int amount)//挖矿
+    public int Harvest(int amount)//鎸栫熆
     {
         if(resourceAmount<=0)
         {
