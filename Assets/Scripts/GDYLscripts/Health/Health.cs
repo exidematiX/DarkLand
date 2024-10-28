@@ -43,6 +43,7 @@ public class Health : MonoBehaviour
         newBar.transform.SetParent(transform);
 
         HealthContainer container = newBar.GetComponent<HealthContainer>();
+        container.GetComponent<Canvas>().sortingLayerName = "BuildingHide";
         _healthBar = container.FillAmountImage;
     }
 
